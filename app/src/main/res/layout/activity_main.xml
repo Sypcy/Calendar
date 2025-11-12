@@ -14,8 +14,7 @@
 
         <com.google.android.material.appbar.MaterialToolbar
             android:layout_width="match_parent"
-            android:layout_height="43dp"
-            android:background="@drawable/ic_round">
+            android:layout_height="43dp">
 
             <TextView
                 android:id="@+id/yearOfNow"
@@ -23,6 +22,8 @@
                 android:layout_height="wrap_content"
                 android:text="Year"
                 android:textSize="35dp"/>
+
+
 
         </com.google.android.material.appbar.MaterialToolbar>
 
@@ -48,10 +49,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:contentDescription="@null"
-            android:layout_margin="16dp"
+            android:layout_margin="13dp"
             android:backgroundTint="#009688"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:srcCompat="@drawable/ic_add"/>
 
 

@@ -118,7 +118,7 @@
         android:hint="输入详细日程内容"
         android:textSize="24dp"
         android:paddingStart="24dp"
-        android:inputType="text"
+        android:inputType="textMultiLine"
         android:background="@drawable/ic_round"
         app:layout_constraintTop_toBottomOf="@+id/timeEdit"
         app:layout_constraintStart_toStartOf="parent"/>
@@ -132,34 +132,9 @@
         android:hint="备注"
         android:textSize="24dp"
         android:paddingStart="24dp"
-        android:inputType="text"
+        android:inputType="textMultiLine"
         android:background="@drawable/ic_round"
         app:layout_constraintTop_toBottomOf="@+id/scheduleEdit"
         app:layout_constraintStart_toStartOf="parent"/>
-
-<!--    <EditText-->
-<!--        android:id="@+id/alarmEdit"-->
-<!--        android:layout_width="0dp"-->
-<!--        android:layout_height="50dp"-->
-<!--        android:layout_margin="18dp"-->
-<!--        android:autofillHints="null"-->
-<!--        android:hint="输入要通知的id"-->
-<!--        android:paddingStart="24dp"-->
-<!--        android:textSize="20dp"-->
-<!--        android:inputType="text"-->
-<!--        android:background="@drawable/ic_round"-->
-<!--        app:layout_constraintWidth_percent="0.5"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"/>-->
-
-<!--    <TextView-->
-<!--        android:id="@+id/alarmSchedule"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:text="日程通知"-->
-<!--        android:textSize="35dp"-->
-<!--        android:layout_margin="16dp"-->
-<!--        app:layout_constraintBottom_toTopOf="@+id/alarmEdit"-->
-<!--        app:layout_constraintStart_toStartOf="parent"/>-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

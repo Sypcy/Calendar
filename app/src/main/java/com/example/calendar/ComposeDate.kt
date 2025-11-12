@@ -18,15 +18,12 @@ import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.Button
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import java.time.LocalDate
 import androidx.compose.ui.graphics.Color
 import androidx.compose.foundation.layout.Arrangement
-import android.app.Activity
 import android.util.Log
-import android.widget.EditText
 
 @Composable
 fun Date(month: Int,sizeOfGrid: Int,sizeOfText: Int){
@@ -58,6 +55,7 @@ fun Date(month: Int,sizeOfGrid: Int,sizeOfText: Int){
                 repeat(blanks) { add(" ") }
                 repeat(daysOfMonth) { add("${it + 1}") }
             }
+
             LazyVerticalGrid(GridCells.Fixed(7)) {
                 items(dates.size) { day ->
                     Box(
