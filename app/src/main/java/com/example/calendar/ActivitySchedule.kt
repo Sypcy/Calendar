@@ -15,9 +15,7 @@ import android.app.PendingIntent
 import android.content.Intent
 import android.icu.util.Calendar
 import android.provider.Settings
-import androidx.compose.ui.text.font.FontVariation
 import java.time.LocalDate
-import kotlin.math.log
 
 class ActivitySchedule : AppCompatActivity() {
     companion object{
@@ -113,11 +111,7 @@ class ActivitySchedule : AppCompatActivity() {
         val day = parts[2].toInt()
 
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
-            val test = LocalDate.now()
-            Log.i(
-                "test",
-                "$test"
-            )
+
             if (year >= LocalDate.now().year
                 && month >= LocalDate.now().monthValue
                 && day >= LocalDate.now().dayOfMonth
@@ -133,14 +127,14 @@ class ActivitySchedule : AppCompatActivity() {
                 )
 
                 val calendar: Calendar = Calendar.getInstance()
-//                    calendar.set(Calendar.YEAR, year)
-//                    calendar.set(Calendar.MONTH, month-1)
-//                    calendar.set(Calendar.DAY_OF_MONTH, day)
-//                    calendar.set(Calendar.HOUR_OF_DAY, 8)
-//                    calendar.set(Calendar.MINUTE, 0)
-//                    calendar.set(Calendar.SECOND, 0)
+                    calendar.set(Calendar.YEAR, year)
+                    calendar.set(Calendar.MONTH, month-1)
+                    calendar.set(Calendar.DAY_OF_MONTH, day)
+                    calendar.set(Calendar.HOUR_OF_DAY, 8)
+                    calendar.set(Calendar.MINUTE, 0)
+                    calendar.set(Calendar.SECOND, 0)
 
-                calendar.add(Calendar.SECOND, 5)
+//                calendar.add(Calendar.SECOND, 5)
                 val alarmTime: Long = calendar.getTimeInMillis()
 
                 if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.S) {
@@ -160,6 +154,10 @@ class ActivitySchedule : AppCompatActivity() {
                     "your date is before now",
                     Toast.LENGTH_SHORT
                 ).show()
+                Log.i(
+                    "test",
+                    "error"
+                )
             }
         }
     }

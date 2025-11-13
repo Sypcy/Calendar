@@ -24,9 +24,11 @@ import java.time.LocalDate
 import androidx.compose.ui.graphics.Color
 import androidx.compose.foundation.layout.Arrangement
 import android.util.Log
+import com.nlf.calendar.Lunar
+import com.nlf.calendar.Solar
 
 @Composable
-fun Date(month: Int,sizeOfGrid: Int,sizeOfText: Int){
+fun Date(month: Int,sizeOfGrid: Int,sizeOfText: Int,judge: Int){
     Column(Modifier.height(400.dp)) {
 
         val weekTitle = listOf("日", "一", "二", "三", "四", "五", "六")
@@ -44,7 +46,7 @@ fun Date(month: Int,sizeOfGrid: Int,sizeOfText: Int){
                 }
             }
         }
-
+            //每月有多少blanks，数字和blanks放一个数组，再输出
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
             val firstDay = LocalDate.of(LocalDate.now().year, month, 1)
             val weekOfFDay = firstDay.dayOfWeek.value
@@ -56,6 +58,11 @@ fun Date(month: Int,sizeOfGrid: Int,sizeOfText: Int){
                 repeat(daysOfMonth) { add("${it + 1}") }
             }
 
+            val lunarDate = buildList {
+                repeat(blanks) { add(" ") }
+                repeat(daysOfMonth) { add(lunarDates(month,it+1)) }
+            }
+
             LazyVerticalGrid(GridCells.Fixed(7)) {
                 items(dates.size) { day ->
                     Box(
@@ -63,10 +70,18 @@ fun Date(month: Int,sizeOfGrid: Int,sizeOfText: Int){
                             .size(sizeOfGrid.dp)
                             .wrapContentSize(Alignment.Center)
                     ) {
-                        Text(
-                            dates[day],
-                            fontSize = sizeOfText.sp
-                        )
+                        Column {
+                            Text(
+                                dates[day],
+                                fontSize = sizeOfText.sp
+                            )
+                            if (judge == 1) {
+                                Text(
+                                    lunarDate[day],
+                                    fontSize = (sizeOfText / 1.5).sp
+                                )
+                            }
+                        }
                     }
                 }
             }
@@ -92,4 +107,17 @@ fun ScheduleList(viewModel: VMSchedule){
                 )
         }
     }
+}
+
+private fun lunarDates(month: Int,day: Int): String{
+    if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+        val solar = Solar.fromYmd(LocalDate.now().year, month, day)
+        val lunarGrid: String =
+            if (solar.lunar.dayInChinese != "初一") {
+                solar.lunar.dayInChinese
+            } else {
+                solar.lunar.monthInChinese + "月"
+            }
+        return lunarGrid
+    }else{return "null"}
 }

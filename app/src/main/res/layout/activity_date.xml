@@ -32,9 +32,29 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_margin="10dp"
-        app:layout_constraintDimensionRatio="3:4"
+        app:layout_constraintDimensionRatio="3:2.5"
         app:layout_constraintTop_toBottomOf="@id/monthOfNow"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/holiday"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="25dp"
+        android:layout_margin="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/holidayTitle"/>
+
+    <TextView
+        android:id="@+id/holidayTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="HOLIDAY"
+        android:textSize="30dp"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/composeDate"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

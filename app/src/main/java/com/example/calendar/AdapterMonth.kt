@@ -34,7 +34,7 @@ class AdapterMonth(
             Box(Modifier
                 .clickable{itemsClick(position)}
             ){
-                Date(month[position],20,11)
+                Date(month[position],20,11,0)
             }
         }
     }
