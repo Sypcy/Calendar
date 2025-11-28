@@ -37,6 +37,10 @@ class MainActivity : AppCompatActivity() {
         }
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
             findViewById<TextView>(R.id.yearOfNow).text = LocalDate.now().year.toString()
+
+            val month = LocalDate.now().monthValue.toString()
+            val date = LocalDate.now().dayOfMonth.toString()
+            findViewById<TextView>(R.id.dateOfNow).text = "$month-$date"
         }
         findViewById<FloatingActionButton>(R.id.addButton).setOnClickListener {
             startActivity(Intent(this, ActivitySchedule::class.java))
